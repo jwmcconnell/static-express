@@ -5,9 +5,12 @@ fetch('/api/v1/colors')
   .then(res => res.json())
   .then(colors => {
     colors.forEach(color => {
+      const link = document.createElement('a');
       const li = document.createElement('li');
+      link.href = `./color.html?name=${color.name}`;
       li.textContent = color.name;
-      list.appendChild(li);
+      link.appendChild(li);
+      list.appendChild(link);
     });
   });
 

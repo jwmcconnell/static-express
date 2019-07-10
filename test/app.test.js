@@ -4,11 +4,19 @@ const app = require('../lib/app');
 const { colors } = require('../lib/colors.json');
 
 describe('Static Express Server', () => {
-  it('returns an html page', () => {
+  it('returns an html home page', () => {
     return request(app)
       .get('/')
       .then(res => {
         expect(res.text).toEqual(expect.stringContaining('<h1>Colors</h1>'));
+      });
+  });
+
+  it('returns an html color page', () => {
+    return request(app)
+      .get('/color.html')
+      .then(res => {
+        expect(res.text).toEqual(expect.stringContaining('<h1>Color</h1>'));
       });
   });
 });
