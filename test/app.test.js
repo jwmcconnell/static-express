@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-const colors = require('../lib/colors.json');
+const data = require('../lib/colors.json');
 
 describe('Static Express Server', () => {
   it('returns an html page', () => {
@@ -18,7 +18,7 @@ describe('API endpoints', () => {
     return request(app)
       .get('/api/v1/colors')
       .then(res => {
-        expect(res.text).toEqual(JSON.stringify(colors));
+        expect(res.text).toEqual(JSON.stringify(data.colors));
       });
   });
 });
