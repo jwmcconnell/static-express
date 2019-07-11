@@ -5,7 +5,6 @@ const color = search.get('color');
 fetch(`/api/v1/colors/${color}`)
   .then(res => res.json())
   .then(color => {
-    console.log(color);
     const colorName = document.createElement('h2');
     const colorHex = document.createElement('h2');
     const colorRGB = document.createElement('h2');
